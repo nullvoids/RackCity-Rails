@@ -1,0 +1,50 @@
+<html>
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+
+  <meta charset="utf-8">
+
+
+
+
+
+</head>
+<body onload="initialize()">
+  <div class="title-container"><img src="photos/bike.png"></img><h3 class="title">rackcity</h3>
+    <div class="account-button">
+      <%if !current_user%>
+      <div class="login account">Login</div>
+      <div class="signup account">Signup</div>
+      <%end%>
+    </div>
+  </div>
+
+  <%= render partial: 'log_in_modal' %>
+  <%= render partial: 'sign_up_modal' %>
+
+
+
+  <div class="welcome">
+    <h1>BIKE SAFELY</h1>
+    <h3>Get directions to the nearest bike rack.</h3>
+    <button class="how-button">How it works</button>
+  </div>
+  <video autoplay loop poster="http://i.imgur.com/RRnPBGy.jpg" id="bgvid">
+    <% bg_links=["photos/UnlinedDenseGalapagoshawk.webm","photos/HarmlessHarmoniousFishingcat.webm"] %>
+    <source src='<%=bg_links.sample%>'type="video/webm">
+    </video>
+    <div class="navigation-form-container">
+      <form action="/map" method="post">
+        <div class="form-div"><input id="start" onFocus="geolocate()" name="start" type="text" placeholder="Starting Location">
+          <input id="end" name="end" type="text" placeholder="Destination">
+          <button type="submit" class="submit" value="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+
+
+  </body>
+  </html>
+

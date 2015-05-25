@@ -1,0 +1,382 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+video#bgvid {
+  position: fixed; right: 0; bottom: 0;
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto; z-index: -100;
+  background: url(#) no-repeat;
+  background-size: cover;
+}
+
+
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 15px #0C95F0;
+}
+
+
+
+*{
+  font-family: sans-serif;
+}
+
+.title-container{
+}
+.title{
+
+  font-family: helvetica;
+
+  font-size: 1.5em;
+  color:white;
+  display: inline-block;
+  margin-left:1%;
+}
+.title-container img{
+  margin-top: 1%;
+  max-height:5%;
+  max-width:5%;
+}
+
+
+.navigation-form-container{
+  background-color: rgba(0,0,0,0.6);
+  margin-top: 20%;
+  height:15%;
+  border-radius: 5px;
+}
+.navigation-form-container form{
+  padding: 1%;
+
+}
+.navigation-form-container input{
+  height:40px;
+  width:200px;
+  display: inline-block;
+  font-size: .8em;
+
+
+}
+
+a{
+  text-decoration: none;
+}
+.log-submit:hover{
+  background-color: #ff6c37;
+
+}
+
+
+.simplemodal-container{
+  background-color: rgba(0,0,0,0.4) !important;
+  border: none !important;
+  padding:0 !important;
+  border-radius: 4px;
+}
+
+
+
+.hidden{
+  display:none;
+}
+
+#start{
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border:none;
+  border-right: 2px solid gray;
+}
+
+#end{
+  border: none;
+  border-right: 2px solid  #339966;
+
+}
+
+.welcome{
+  color:white;
+  position:relative;
+  display: block;
+  width:50%;
+  text-align: center;
+  margin:12% auto;
+}
+.submit{
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: #00cd96;
+  vertical-align: middle;
+  color: white;
+  font-size: 1em;
+  border: none;
+  padding: 10px;
+}
+
+
+.submit:hover{
+  background-color: #00a478;
+  color: lightgrey;
+}
+
+.how-button{
+  border:none;
+  font-size: 1em;
+  padding:10px;
+  background-color: rgba(256,256,256,0.3);
+  border:1px solid white;
+  color:white;
+  border-radius: 2px;
+
+}
+.how-button:hover{
+  background-color: rgba(0,0,0,0.5);
+}
+
+.account-button{
+  position:relative;
+  display:inline-block;
+  background-color: transparent;
+  color:white;
+  margin-left: 70%;
+}
+.login{
+  padding: 5px;
+  display: inline-block;
+  border:1px solid white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.signup{
+  padding: 5px;
+  border-radius: 3px;
+  display: inline-block;
+  cursor: pointer;
+  border:1px solid white;
+}
+.account:hover{
+  background-color: rgba(0,0,0,0.5);
+}
+
+
+.form-div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width:40%;
+  margin:auto;
+}
+
+
+
+
+/***************************************************/
+
+
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+
+  *{
+    font-family: sans-serif;
+  }
+
+  video#bgvid {
+    display:none;
+  }
+
+
+  html{
+    background-image: url(http://i.imgur.com/0GWg0Lv.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:100%;
+    width: 100%;
+  }
+
+  .title-container{
+  }
+  .title{
+/*  font-family: 'Amatic SC', cursive;
+*/
+font-family: helvetica;
+
+font-size: 1.5em;
+color:white;
+display: inline-block;
+margin-left:1%;
+}
+.title-container img{
+  margin-top: 1%;
+  max-height:5%;
+  max-width:5%;
+}
+
+
+
+.navigation-form-container{
+  height:40%;
+  width:40%;
+  display: block;
+  background-color: transparent;
+  margin:auto;
+}
+
+.navigation-form-container form{
+  margin: 0 auto;
+  padding-bottom: 3%;
+  width:40%;
+
+}
+.navigation-form-container input{
+  height:40px;
+  display: block;
+  margin:auto;
+  margin-right:5%;
+  border-radius: 2px;
+  border:none;
+  margin-top:4%;
+  font-size: 1em;
+
+}
+
+
+.welcome{
+  color:white;
+  position:relative;
+  display: block;
+  width:50%;
+  text-align: center;
+  margin:12% auto;
+}
+.submit{
+  border-radius: 2px;
+  display:block;
+  margin:auto;
+  background-color: #00cd96;
+  vertical-align: middle;
+  color:white;
+  font-size: 1em;
+  border:none;
+  padding:10px;
+  margin-top: 10px;
+}
+
+.submit:hover{
+  background-color: #00a478;
+  color: lightgrey;
+}
+
+.how-button{
+  border:none;
+  font-size: 1em;
+  padding:10px;
+  background-color: rgba(256,256,256,0.3);
+  border:1px solid white;
+  color:white;
+  border-radius: 4px;
+
+}
+.how-button:hover{
+  background-color: rgba(0,0,0,0.5);
+}
+
+.account-button{
+  position:relative;
+  display:inline-block;
+  background-color: transparent;
+  color:white;
+  margin-left: 70%;
+}
+.login{
+  padding: 5px;
+  display: inline-block;
+  border:1px solid white;
+  border-radius: 2px;
+
+}
+.signup{
+  padding: 5px;
+  border-radius: 2px;
+  display: inline-block;
+  border:1px solid white;
+}
+.account:hover{
+  background-color: rgba(0,0,0,0.5);
+}
+
+
+}
+
+
+/************************************/
+/*.wrapper {
+  margin: 50px auto;
+  width: 280px;
+  height: 370px;
+  background: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 8px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 8px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 90;
+  }*/
+
+  // .ribbon-wrapper-green {
+  //   width: 85px;
+  //   height: 88px;
+  //   overflow: hidden;
+  //   position: absolute;
+  //   top: -3px;
+  //   right: -3px;
+  //   display: inline-block;
+  // }
+
+  // .ribbon-green {
+  //   display: inline-block;
+  //   font: bold 15px Sans-Serif;
+  //   color: #333;
+  //   text-align: center;
+  //   text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+  //   -webkit-transform: rotate(45deg);
+  //   -moz-transform:    rotate(45deg);
+  //   -ms-transform:     rotate(45deg);
+  //   -o-transform:      rotate(45deg);
+  //   position: relative;
+  //   padding: 7px 0;
+  //   left: -5px;
+  //   top: 15px;
+  //   width: 120px;
+  //   background-color: #BFDC7A;
+  //   background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45));
+  //   background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45);
+  //   background-image:    -moz-linear-gradient(top, #BFDC7A, #8EBF45);
+  //   background-image:     -ms-linear-gradient(top, #BFDC7A, #8EBF45);
+  //   background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45);
+  //   color: #6a6340;
+  //   -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  //   -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+  //   box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+  // }
+
+  // .ribbon-green:before, .ribbon-green:after {
+  //   content: "";
+  //   border-top:   3px solid #6e8900;
+  //   border-left:  3px solid transparent;
+  //   border-right: 3px solid transparent;
+  //   position:absolute;
+  //   bottom: -3px;
+  //   display:inline-block;
+  // }
+
+  // .ribbon-green:before {
+  //   left: 0;
+  // }
+
+  // .ribbon-green:after {
+  //   right: 0;
+  //   }​
