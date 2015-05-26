@@ -67,12 +67,51 @@ a{
 
 }
 
+p.notice {
+  text-align: center;
+  padding: 1em;
+  width: 14em;
+  border-radius: 4px;
+  color: rgb(90, 200, 90);
+  margin: 1em auto;
+}
 
 .simplemodal-container{
   background-color: rgba(0,0,0,0.4) !important;
   border: none !important;
   padding:0 !important;
   border-radius: 4px;
+  height: 381px !important;
+}
+
+button.simplemodal-close {
+  float: right;
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+
+.modal{
+  text-align: center;
+}
+.modal-title{
+  color:white;
+}
+.modal input{
+  color:black;
+  margin-bottom:1em;
+}
+
+
+.modal-form-container{
+  padding-bottom: 1em;
+}
+.submit-container input {
+  border: none;
+  padding: .4em;
+  border-radius: 4px;
+  color: white;
+  background-color: coral;
 }
 
 

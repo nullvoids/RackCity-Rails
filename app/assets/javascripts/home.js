@@ -7,6 +7,8 @@ $(document).ready(function() {
 
   $(".login").click(function(){
     $("#loginmodal").modal();
+    $("#loginmodal").removeClass('hidden');
+
   });
 
   $(".signup").click(function(){
@@ -18,14 +20,14 @@ $(document).ready(function() {
   var autocomplete2, autocomplete;
 
 
-  function initialize(){
+  (function initialize(){
 
     // Create the autocomplete object, restricting the search
     // to geographical location types.
     autocomplete = new google.maps.places.Autocomplete((document.getElementById('start')),{types: ['geocode']});
     autocomplete2 = new google.maps.places.Autocomplete(document.getElementById('end'));
 
-  }
+  })()
 
   function geolocate() {
     if (navigator.geolocation) {
