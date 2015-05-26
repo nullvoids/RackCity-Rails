@@ -43,6 +43,9 @@ $(document).ready(function() {
     }
   }
 
+
+
+
   /*MAP*/
 
 
@@ -73,7 +76,7 @@ function distance(lat1,lon1,lat2,lon2){
   return d;
 }
 
-function initialize() {
+(function initialize() {
 
   directionsDisplay = new google.maps.DirectionsRenderer();
   var mapOptions = {
@@ -83,7 +86,7 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   directionsDisplay.setMap(map);
   calcRoute()
-}
+})()
 
 
 function calcRoute() {
