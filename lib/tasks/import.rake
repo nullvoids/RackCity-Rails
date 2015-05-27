@@ -7,11 +7,12 @@ task :import, [:filename] => :environment do
     bikerack = BikeRack.new()
     bikerack.location_name = rack[:location_name]
     bikerack.rack_count = rack[:racks]
-    bikerack.address = rack[:address] #Street name
+    bikerack.address = rack[:address]
     bikerack.year_installed = rack[:yr_installed]
     bikerack.spaces = rack[:spaces]
-    bikerack.longitude = rack[:coordinates].match(/[-]\d+[.]\d+/)[0].to_s
-    bikerack.latitude = rack[:coordinates].match(/[(]\d+[.]\d+/)[0][1..-1].to_s
+    #The following lines of regex are required only because DataSF has a horrible CSV that returns more data than coordinates when strictly asking for coordinates.
+    bikerack.longitude = rack[:coordinates].match(/[-]\d+[.]\d+/)[0].to_f
+    bikerack.latitude = rack[:coordinates].match(/[(]\d+[.]\d+/)[0][1..-1].to_f
       bikerack.save
     end
 

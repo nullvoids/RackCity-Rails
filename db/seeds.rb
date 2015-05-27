@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-require 'csv'
 
-#THE FOLLOWING METHOD ONLY POPULATES DB WITH FIRST 1000 RACKS BC OF API REQUEST LIMIT. AS A RESULT, I AM SEEDING BY PARSING A CSV
+#THE FOLLOWING METHOD ONLY POPULATES DB WITH FIRST 1000 RACKS BC OF API REQUEST LIMIT. AS A RESULT, I AM SEEDING BY PARSING A CSV. TO SEED RUN THE CUSTOM RAKE TASK BY TYPING: "bin/rake import" IN THE TERMINAL.
+
 # bike_racks = HTTParty.get('https://data.sfgov.org/resource/w969-5mn4.json')
 
 # bike_racks.each do |bike_rack|
@@ -21,16 +21,4 @@ require 'csv'
 #   bikerack.latitude = bike_rack["latitude"]["latitude"]
 #   bikerack.save
 # end
-
-racks = CSV.read("Bicycle_Parking_Public.csv", headers: true, header_converters: :symbol, converters: :all)
-racks.each do |rack|
-  bikerack = BikeRack.new()
-  bikerack.location_name = bike_rack[:location_name]
-  bikerack.rack_count = bike_rack[:racks]
-  bikerack.address = bike_rack[:address] #Street name
-  bikerack.year_installed = bike_rack[:yr_installed]
-  bikerack.spaces = bike_rack[:spaces]
-  bikerack.longitude = rack[:coordinates].match(/[-]\d+[.]\d+/)[0].to_s
-  bikerack.latitude = rack[:coordinates].match(/[(]\d+[.]\d+/)[0][1..-1].to_s
-end
 

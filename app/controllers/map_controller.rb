@@ -11,8 +11,7 @@ class MapController < ApplicationController
     @nearest_bike_coor = find_nearest_bike(nearest_bikes, [@end_loc["lat"].to_f, @end_loc["lng"].to_f])[0]
 
 
-    raise
-    @bikedata = BikeRack.where(latitude: @nearest_bike_coor.first.to_s)
+    @bikedata = BikeRack.where(latitude: @nearest_bike_coor.first, longitude: @nearest_bike_coor.last).first
 
   end
 
