@@ -107,7 +107,8 @@ $(".comment-form").on("submit", function(event){
     data: {comment: {content: $(".comment-form textarea").val(), bike_rack_id: parseInt($(".ul-container").attr("data-id"))}}
   })
   .done(function(e) {
-    debugger
+    //TODO: use handlebars
+    $(".comment-container").append('<div>'+e.user.email+':'+e.comment.content+'</div>')
   })
 
 });
