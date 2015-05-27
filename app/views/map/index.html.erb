@@ -3,7 +3,7 @@
 <html>
 
 <head>
-  <a href="/"><div class="header-div"><img src="photos/bike.png"></img><h3 class="rack-header">rackcity</h3></div></a>
+  <a href="/"><div class="header-div"><img class="bike-logo" src="photos/bike.png"></img><h3 class="rack-header">rackcity</h3></div></a>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
   <title>Travel modes in directions</title>
@@ -14,24 +14,23 @@
 </head>
 <body>
   <%if current_user%>
-  <h1 class="greeting">Hello <%=current_user.email%>,</h1>
-  <h1>The Route to Your Rack</h1>
+  <h2 class="greeting">Hello <%=current_user.email%>,</h2>
+  <h3>The Route to Your Rack</h3>
   <%end%>
 
-  <p class="start-loc"><%= @start_coor %></p>
-  <p class="nearest-bike"><%= @nearest_bike_coor %></p>
-  <p class="nearest-bike-data"><%= @bikedata %></p>
+  <p class="hidden start-loc"><%= @start_coor %></p>
+  <p class="hidden nearest-bike"><%= @nearest_bike_coor %></p>
+
 
   <form action="/logout" method="get"><button class="logout">logout</button></form>
   <div id="map-canvas"></div>
 
   <div class="ul">
     <ul id="info">
-      <li id="location"></li>
-      <li id="racks"></li>
-      <li id="spaces"></li>
-      <li id="year"></li>
-      <li><div class="acidjs-rating-stars">
+      <li id="location"><strong>Location: </strong><%= @bikedata.address.downcase.titleize %></li>
+      <li id="racks"><strong>Rack Count: </strong><%= @bikedata.rack_count %></li>
+      <li id="year"><strong>Year Installed: </strong><%= @bikedata.year_installed %></li>
+      <li><strong>Rating: </strong><div class="acidjs-rating-stars">
         <form>
         <input type="radio" name="group-1" id="group-1-0" value="5" /><label for="group-1-0"></label><!--
         --><input type="radio" name="group-1" id="group-1-1" value="4" /><label for="group-1-1"></label><!--

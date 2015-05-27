@@ -61,34 +61,41 @@ $(".map.index").ready(function(){
 
     directionsDisplay = new google.maps.DirectionsRenderer();
     var mapOptions = {
-      zoom: 12,
-      center: new google.maps.LatLng(37.762997, -122.445137)
-    }
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    directionsDisplay.setMap(map);
-    calcRoute()
+     scrollwheel: false,
+     navigationControl: false,
+     mapTypeControl: false,
+     scaleControl: false,
+     draggable: false,
+     zoom: 12,
+     center: new google.maps.LatLng(37.762997, -122.445137)
+   }
+   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+   directionsDisplay.setMap(map);
+   calcRoute()
+ }
+
+
+ function calcRoute() {
+
+  var start_point = new google.maps.LatLng(parseFloat(JSON.parse($(".start-loc").text())[0]),parseFloat(JSON.parse($(".start-loc").text())[1]));
+  var end_rack = new google.maps.LatLng(parseFloat(JSON.parse($(".nearest-bike").text())[0]),parseFloat(JSON.parse($(".nearest-bike").text())[1]));
+
+
+  var request = {
+
+    origin: start_point,
+    destination: end_rack,
+    travelMode: google.maps.TravelMode.BICYCLING
   }
-
-
-  function calcRoute() {
-
-    var start_point = new google.maps.LatLng(parseFloat(JSON.parse($(".start-loc").text())[0]),parseFloat(JSON.parse($(".start-loc").text())[1]));
-    var end_rack = new google.maps.LatLng(parseFloat(JSON.parse($(".nearest-bike").text())[0]),parseFloat(JSON.parse($(".nearest-bike").text())[1]));
-
-
-    var request = {
-      origin: start_point,
-      destination: end_rack,
-      travelMode: google.maps.TravelMode.BICYCLING
+  directionsService.route(request, function(response, status){
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
     }
-    directionsService.route(request, function(response, status){
-      if (status == google.maps.DirectionsStatus.OK) {
-        directionsDisplay.setDirections(response);
-      }
-    });
-  }
-  google.maps.event.addDomListener(window, 'load', initialize);
+  });
+}
+google.maps.event.addDomListener(window, 'load', initialize);
 
-
+// $('#group-1-'+ 5 - avg)
+//$("#group-1-4").prop( "checked", true );
 
 });
