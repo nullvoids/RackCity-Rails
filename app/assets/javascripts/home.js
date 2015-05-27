@@ -65,7 +65,6 @@ $(".map.index").ready(function(){
      navigationControl: false,
      mapTypeControl: false,
      scaleControl: false,
-     draggable: false,
      zoom: 12,
      center: new google.maps.LatLng(37.762997, -122.445137)
    }
@@ -97,5 +96,21 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 // $('#group-1-'+ 5 - avg)
 //$("#group-1-4").prop( "checked", true );
+
+
+$(".comment-form").on("submit", function(event){
+  event.preventDefault();
+  $.ajax({
+    url: '/comment',
+    type: 'POST',
+    dataType: 'JSON',
+    data: {comment: {content: $(".comment-form textarea").val(), bike_rack_id: parseInt($(".ul-container").attr("data-id"))}}
+  })
+  .done(function(e) {
+    debugger
+  })
+
+});
+
 
 });

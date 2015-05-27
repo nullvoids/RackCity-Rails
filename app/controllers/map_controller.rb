@@ -7,8 +7,8 @@ class MapController < ApplicationController
     nearest_bikes = HTTParty.get("https://data.sfgov.org/resource/w969-5mn4.json?$where=within_circle(latitude,#{@end_loc['lat']},#{@end_loc['lng']},300)")
     @start_coor = [@start_loc['lat'], @start_loc['lng']]
     @nearest_bike_coor = find_nearest_bike(nearest_bikes, [@end_loc["lat"].to_f, @end_loc["lng"].to_f])[0]
-    nearest_bike_name = find_nearest_bike(nearest_bikes, [@end_loc["lat"].to_f, @end_loc["lng"].to_f])[1]
-    @bikedata = BikeRack.find_by(location_name: nearest_bike_name)
+    nearest_bike_street = find_nearest_bike(nearest_bikes, [@end_loc["lat"].to_f, @end_loc["lng"].to_f])[1]
+    @bikedata = BikeRack.find_by(address: nearest_bike_street)
 
 # {"lat"=>37.7597727, "lng"=>-122.427063}
 end
@@ -18,17 +18,17 @@ private
 def find_nearest_bike(nearest_bikes, loc1)
   min_dist = 300
   nearest_coor = nil #greedy algorithm
-  place_name = nil
+  street_name = nil
   nearest_bikes.each do |nearby_bike|
     loc2 = nearby_bike["latitude"]["latitude"].to_f, nearby_bike["latitude"]["longitude"].to_f
     dist_to_dest = distance(loc1,loc2) #distance in meters
     if dist_to_dest < min_dist
       min_dist = dist_to_dest
       nearest_coor = loc2
-      place_name = nearby_bike["addr_num"]
+      street_name = nearby_bike["yr_inst"]
     end
   end
-  [nearest_coor, place_name]
+  [nearest_coor, street_name]
 end
 
 def distance(loc1, loc2)

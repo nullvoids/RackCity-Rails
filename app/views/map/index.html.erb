@@ -22,12 +22,14 @@
   <p class="hidden nearest-bike"><%= @nearest_bike_coor %></p>
 
 
-  <form action="/logout" method="get"><button class="logout">logout</button></form>
+  <%= link_to "sign out", destroy_user_session_path, method: :delete %>
   <div id="map-canvas"></div>
 
-  <div class="ul">
+  <div class="ul-container" data-id="<%=@bikedata.id%>">
     <ul id="info">
+
       <li id="location"><strong>Location: </strong><%= @bikedata.address.downcase.titleize %></li>
+      <li id="location"><strong>Name: </strong><%= @bikedata.location_name %></li>
       <li id="racks"><strong>Rack Count: </strong><%= @bikedata.rack_count %></li>
       <li id="year"><strong>Year Installed: </strong><%= @bikedata.year_installed %></li>
       <li><strong>Rating: </strong><div class="acidjs-rating-stars">
@@ -41,15 +43,14 @@
   </div></li>
 </ul>
 </div>
-<h3 class="comments">Comments for this rack:</h3>
-<form class="comment-form">
+<h3>Comments for this rack:</h3>
+<form class="comment-form" action="/comment" method="post">
   <textarea rows="8" cols="50"></textarea>
-  <button type="submit">Submit</button>
+  <input class="comment-submit-btn" type="submit">Submit</input>
 </form>
 
 </body>
 </html>
-
 
 
 
