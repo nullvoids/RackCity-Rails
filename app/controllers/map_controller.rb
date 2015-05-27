@@ -5,18 +5,20 @@ class MapController < ApplicationController
     @start_loc = get_coordinates(HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{map_params["start"].gsub(/[,]/,'').gsub(/[\s]/, "+")}&key=AIzaSyDdG_VU83NMjKiN5k5HExLIhH3K2XN5wkA"))
     @end_loc = get_coordinates(HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{map_params["end"].gsub(/[,]/,'').gsub(/[\s]/, "+")}&key=#{ENV['GOOGLE_GEOCODER_KEY']}"))
     nearest_bikes = HTTParty.get("https://data.sfgov.org/resource/w969-5mn4.json?$where=within_circle(latitude,#{@end_loc['lat']},#{@end_loc['lng']},300)")
+
+
     @start_coor = [@start_loc['lat'], @start_loc['lng']]
     @nearest_bike_coor = find_nearest_bike(nearest_bikes, [@end_loc["lat"].to_f, @end_loc["lng"].to_f])[0]
-    nearest_bike_street = find_nearest_bike(nearest_bikes, [@end_loc["lat"].to_f, @end_loc["lng"].to_f])[1]
-    @bikedata = BikeRack.find_by(address: nearest_bike_street)
 
-# {"lat"=>37.7597727, "lng"=>-122.427063}
-end
 
-private
+    @bikedata = BikeRack.where(latitude: @nearest_bike_coor.first, longitude: @nearest_bike_coor.last).first
 
-def find_nearest_bike(nearest_bikes, loc1)
-  min_dist = 300
+  end
+
+  private
+
+  def find_nearest_bike(nearest_bikes, loc1)
+    min_dist = 300
   nearest_coor = nil #greedy algorithm
   street_name = nil
   nearest_bikes.each do |nearby_bike|

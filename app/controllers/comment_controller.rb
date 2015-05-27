@@ -1,8 +1,9 @@
 class CommentController < ApplicationController
+
   def create
     curr_rack = BikeRack.find(comment_params["bike_rack_id"].to_i)
     comment = current_user.comments.new(comment_params)
-    byebug
+    comment.save
     render json: {user: current_user, comment: comment_params}
   end
 

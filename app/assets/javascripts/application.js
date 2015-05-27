@@ -11,10 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require jquery.simplemodal
 //= require jquery.readyselector
+//= require turbolinks
 //= require_tree .
 
 

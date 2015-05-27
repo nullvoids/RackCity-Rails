@@ -21,8 +21,9 @@
   <p class="hidden start-loc"><%= @start_coor %></p>
   <p class="hidden nearest-bike"><%= @nearest_bike_coor %></p>
 
-
+  <% if user_signed_in? %>
   <%= link_to "sign out", destroy_user_session_path, method: :delete %>
+  <% end %>
   <div id="map-canvas"></div>
 
   <div class="ul-container" data-id="<%=@bikedata.id%>">
@@ -44,11 +45,16 @@
 </ul>
 </div>
 <h3>Comments for this rack:</h3>
+
 <form class="comment-form" action="/comment" method="post">
   <textarea rows="8" cols="50"></textarea>
-  <input class="comment-submit-btn" type="submit">Submit</input>
+  <input class="comment-submit-btn" type="submit">
 </form>
-
+<div class="comment-container">
+  <% @bikedata.comments.each do |comment| %>
+  <div><%= User.find(comment.user_id).email %>: <%= comment.content %></div>
+  <% end %>
+</div>
 </body>
 </html>
 

@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150526221247) do
     t.integer  "rating",         default: 0
     t.integer  "rack_count",     default: 0
     t.integer  "year_installed", default: 0
+    t.integer  "spaces",         default: 0
     t.string   "longitude"
     t.string   "latitude"
     t.string   "address"

@@ -1,9 +1,18 @@
-$(".home.index").ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+$(".home.index").ready(function() {
+  initializeHome();
+});
+
+
+/*MAP*/
+
+$(".map.index").ready(function(){
+  initializeMap();
+});
+
+
+
+function initializeHome(){
 
   $(".login").click(function(){
     $("#loginmodal").modal();
@@ -43,11 +52,9 @@ $(".home.index").ready(function() {
     }
   }
 
-});
+}
 
-
-/*MAP*/
-$(".map.index").ready(function(){
+function initializeMap(){
 
 
   var directionsDisplay;
@@ -107,10 +114,12 @@ $(".comment-form").on("submit", function(event){
     data: {comment: {content: $(".comment-form textarea").val(), bike_rack_id: parseInt($(".ul-container").attr("data-id"))}}
   })
   .done(function(e) {
-    debugger
+    //TODO: use handlebars
+    $(".comment-container").append('<div>'+e.user.email+':'+e.comment.content+'</div>')
   })
+  .error(function() {
+    alert("You must be signed in to do that!")
+  });
 
 });
-
-
-});
+}
