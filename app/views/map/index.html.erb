@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <a href="/"><div class="header-div"><img src="images/bike.png"></img><h3 class="rack-header">rackcity</h3></div></a>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>Travel modes in directions</title>
+  <link rel="stylesheet" href="/css/map.css">
+
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+
+</head>
+<body>
+  <%if current_user%>
+  <h1 class="greeting">Hello <%=current_user.email%>,</h1>
+  <h1>The Route to Your Rack</h1>
+  <%end%>
+  <%= @start_loc %>
+  <%= @end_loc %>
+  <%= @nearest_bike %>
+  <div id="data" class='hidden start-end'><%= @start_end%></div>
+  <div id="data" class='hidden data'><%= @data.to_json%></div>
+  <div id="data" class='hidden coordinates'><%= @coordinates%></div>
+  <form action="/logout" method="get"><button class="logout">logout</button></form>
+  <div id="map-canvas"></div>
+
+  <div class="ul">
+    <ul id="info">
+      <li id="location"></li>
+      <li id="racks"></li>
+      <li id="spaces"></li>
+      <li id="year"></li>
+      <li><div class="acidjs-rating-stars">
+        <form>
+        <input type="radio" name="group-1" id="group-1-0" value="5" /><label for="group-1-0"></label><!--
+        --><input type="radio" name="group-1" id="group-1-1" value="4" /><label for="group-1-1"></label><!--
+        --><input type="radio" name="group-1" id="group-1-2" value="3" /><label for="group-1-2"></label><!--
+        --><input type="radio" name="group-1" id="group-1-3" value="2" /><label for="group-1-3"></label><!--
+      --><input type="radio" name="group-1" id="group-1-4"  value="1" /><label for="group-1-4"></label>
+    </form>
+  </div></li>
+</ul>
+</div>
+<h3 class="comments">Comments for this rack:</h3>
+<form class="comment-form">
+  <textarea rows="8" cols="50"></textarea>
+  <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
+
+
+
+
