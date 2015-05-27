@@ -3,11 +3,11 @@
 <html>
 
 <head>
-  <a href="/"><div class="header-div"><img src="images/bike.png"></img><h3 class="rack-header">rackcity</h3></div></a>
+  <a href="/"><div class="header-div"><img src="photos/bike.png"></img><h3 class="rack-header">rackcity</h3></div></a>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
   <title>Travel modes in directions</title>
-  <link rel="stylesheet" href="/css/map.css">
+
 
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
 
@@ -17,12 +17,11 @@
   <h1 class="greeting">Hello <%=current_user.email%>,</h1>
   <h1>The Route to Your Rack</h1>
   <%end%>
-  <%= @start_loc %>
-  <%= @end_loc %>
-  <%= @nearest_bike %>
-  <div id="data" class='hidden start-end'><%= @start_end%></div>
-  <div id="data" class='hidden data'><%= @data.to_json%></div>
-  <div id="data" class='hidden coordinates'><%= @coordinates%></div>
+
+  <p class="start-loc"><%= @start_coor %></p>
+  <p class="nearest-bike"><%= @nearest_bike_coor %></p>
+  <p class="nearest-bike-data"><%= @bikedata %></p>
+
   <form action="/logout" method="get"><button class="logout">logout</button></form>
   <div id="map-canvas"></div>
 

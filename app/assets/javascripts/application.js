@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.simplemodal
+//= require jquery.readyselector
 //= require_tree .
 
 

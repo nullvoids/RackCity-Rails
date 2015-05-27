@@ -1,5 +1,4 @@
-$(document).ready(function() {
-  debugger
+$(".home.index").ready(function() {
   // This is called after the document has loaded in its entirety
   // This guarantees that any elements we bind to will exist on the page
   // when we try to bind to them
@@ -44,10 +43,11 @@ $(document).ready(function() {
     }
   }
 
+});
 
 
-
-  /*MAP*/
+/*MAP*/
+$(".map.index").ready(function(){
 
 
   var directionsDisplay;
@@ -57,8 +57,8 @@ $(document).ready(function() {
 
 
 
-  (function initialize2() {
-    debugger
+  function initialize() {
+
     directionsDisplay = new google.maps.DirectionsRenderer();
     var mapOptions = {
       zoom: 12,
@@ -67,13 +67,13 @@ $(document).ready(function() {
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     directionsDisplay.setMap(map);
     calcRoute()
-  })()
+  }
 
 
   function calcRoute() {
-    debugger
-    var start_point = new google.maps.LatLng(parseFloat(37.7597727),parseFloat(-122.427063));
-    var end_rack = new google.maps.LatLng(parseFloat(37.760396),parseFloat(-122.414516));
+
+    var start_point = new google.maps.LatLng(parseFloat(JSON.parse($(".start-loc").text())[0]),parseFloat(JSON.parse($(".start-loc").text())[1]));
+    var end_rack = new google.maps.LatLng(parseFloat(JSON.parse($(".nearest-bike").text())[0]),parseFloat(JSON.parse($(".nearest-bike").text())[1]));
 
 
     var request = {

@@ -1,19 +1,18 @@
-// #map-canvas {
-//   height: 80%;
-//   width: 70%;
-//   margin: 0 auto;
-//   padding: 0px;
-//   border-radius: 10px;
-// }
-// body{
-//   height: 93%;
-//   width: 91%;
-//   margin: 8% auto;
-//   background-color: white;
-//   border-top-left-radius: 10px;
-//   border-top-right-radius: 10px;
-//   padding-bottom: 40%;
-// }
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      #panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+      }
 // html{
 //   height:100%;
 //   width:100%;
