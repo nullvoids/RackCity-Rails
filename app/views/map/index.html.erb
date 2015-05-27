@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <a href="/"><div class="header-div"><img class="bike-logo" src="photos/bike.png"></img><h3 class="rack-header">rackcity</h3></div></a>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <title>Travel modes in directions</title>
+
+
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+
+</head>
+<body>
+  <%if current_user%>
+  <h2 class="greeting">Hello <%=current_user.email%>,</h2>
+  <h3>The Route to Your Rack</h3>
+  <%end%>
+
+  <p class="hidden start-loc"><%= @start_coor %></p>
+  <p class="hidden nearest-bike"><%= @nearest_bike_coor %></p>
+
+
+  <%= link_to "sign out", destroy_user_session_path, method: :delete %>
+  <div id="map-canvas"></div>
+
+  <div class="ul-container" data-id="<%=@bikedata.id%>">
+    <ul id="info">
+
+      <li id="location"><strong>Location: </strong><%= @bikedata.address.downcase.titleize %></li>
+      <li id="location"><strong>Name: </strong><%= @bikedata.location_name %></li>
+      <li id="racks"><strong>Rack Count: </strong><%= @bikedata.rack_count %></li>
+      <li id="year"><strong>Year Installed: </strong><%= @bikedata.year_installed %></li>
+      <li><strong>Rating: </strong><div class="acidjs-rating-stars">
+        <form>
+        <input type="radio" name="group-1" id="group-1-0" value="5" /><label for="group-1-0"></label><!--
+        --><input type="radio" name="group-1" id="group-1-1" value="4" /><label for="group-1-1"></label><!--
+        --><input type="radio" name="group-1" id="group-1-2" value="3" /><label for="group-1-2"></label><!--
+        --><input type="radio" name="group-1" id="group-1-3" value="2" /><label for="group-1-3"></label><!--
+      --><input type="radio" name="group-1" id="group-1-4"  value="1" /><label for="group-1-4"></label>
+    </form>
+  </div></li>
+</ul>
+</div>
+<h3>Comments for this rack:</h3>
+<form class="comment-form" action="/comment" method="post">
+  <textarea rows="8" cols="50"></textarea>
+  <input class="comment-submit-btn" type="submit">Submit</input>
+</form>
+
+</body>
+</html>
+
+
+

@@ -36,9 +36,9 @@
     <source src='<%=bg_links.sample%>'type="video/webm">
     </video>
     <div class="navigation-form-container">
-      <form action="/map" method="post">
-        <div class="form-div"><input id="start" onFocus="geolocate()" name="start" type="text" placeholder="Starting Location">
-          <input id="end" name="end" type="text" placeholder="Destination">
+      <form action="/map" method="get">
+        <div class="form-div"><input id="start" onFocus="geolocate()" name="location[start]" type="text" placeholder="Starting Location">
+          <input id="end" name="location[end]" type="text" placeholder="Destination">
           <button type="submit" class="submit" value="submit">Submit</button>
         </div>
       </form>
