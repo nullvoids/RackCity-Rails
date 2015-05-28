@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 
-<html>
+<html class="map-page">
 
 <head>
-  <a href="/"><div class="header-div"><img class="bike-logo" src="photos/bike.png"></img><h3 class="rack-header">rackcity</h3></div></a>
+  <div class="header-container">
+    <a href="/"><div class="logo-div"><img class="bike-logo" src="photos/bike.png"></img><h3 class="rack-header">rackcity</h3></div></a>
+    <% if user_signed_in? %>
+    <div class="sign-out-div"><%= link_to "sign out", destroy_user_session_path, method: :delete, class: "sign-out-btn" %>
+      <% end %>
+    </div>
+  </div>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
   <title>Travel modes in directions</title>
@@ -14,16 +20,15 @@
 </head>
 <body>
   <%if current_user%>
-  <h2 class="greeting">Hello <%=current_user.email%>,</h2>
-  <h3>The Route to Your Rack</h3>
+  <div class="greeting-container">
+    <h2 class="greeting">Hello <%=current_user.email%>,</h2>
+    <h3 class="greeting">The Route to Your Rack</h3>
+  </div>
   <%end%>
 
   <p class="hidden start-loc"><%= @start_coor %></p>
   <p class="hidden nearest-bike"><%= @nearest_bike_coor %></p>
 
-  <% if user_signed_in? %>
-  <%= link_to "sign out", destroy_user_session_path, method: :delete %>
-  <% end %>
   <div id="map-canvas"></div>
 
   <div class="ul-container" data-id="<%=@bikedata.id%>">
@@ -44,12 +49,14 @@
   </div></li>
 </ul>
 </div>
-<h3>Comments for this rack:</h3>
+<div class="comment-form-container">
+  <h3>Comments for this rack:</h3>
 
-<form class="comment-form" action="/comment" method="post">
-  <textarea rows="8" cols="50"></textarea>
-  <input class="comment-submit-btn" type="submit">
-</form>
+  <form class="comment-form" action="/comment" method="post">
+    <textarea rows="8" cols="50"></textarea>
+    <input class="comment-submit-btn" type="submit">
+  </form>
+</div>
 <div class="comment-container">
   <% @bikedata.comments.each do |comment| %>
   <div><%= User.find(comment.user_id).email %>: <%= comment.content %></div>
