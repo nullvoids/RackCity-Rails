@@ -1,8 +1,16 @@
- #map-canvas {
+$grayfont: rgb(116, 116, 116);
+
+#map-canvas {
   height: 35em;
   width: 50em;
   margin: 0 auto;
   padding: 0px;
+}
+
+span.rating-count {
+  font-size: .4em;
+  color: gray;
+  margin-left: 1em;
 }
 .header-container {
   background-color: rgba(86, 130, 251, 0.85);
@@ -63,7 +71,7 @@ a.sign-out-btn:hover {
 
 .greeting{
   text-align: center;
-  color: rgb(116, 116, 116);
+  color: $grayfont;
   font-weight: 100;
 }
 .greeting-container{
@@ -124,7 +132,7 @@ input.comment-submit-btn:hover {
   margin: 3em auto;
 }
 .comment-form-container h3 {
-  color: rgb(88, 88, 88);
+  color: $grayfont;
   font-weight: 100;
 }
 .comment-form{

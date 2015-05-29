@@ -52,7 +52,7 @@ function initializeMap(){
 google.maps.event.addDomListener(window, 'load', initialize);
 
 var avgRating = parseInt($(".rack-rating").text())
-if (avgRating !== 0) $('#group-1-'+ (5 - 5)).prop("checked", true);
+if (avgRating !== 0) $('#group-1-'+ (5 - avgRating)).prop("checked", true);
 // $("#group-1-4").prop( "checked", true );
 
 
@@ -60,7 +60,6 @@ if (avgRating !== 0) $('#group-1-'+ (5 - 5)).prop("checked", true);
 $(".acidjs-rating-stars form :input").change(function(e){
   var userRating = $(this).attr("value");
   var currentRackID = $(".ul-container").attr("data-id")
-  debugger
   $.ajax({
     url: '/rating',
     type: 'POST',
@@ -71,7 +70,7 @@ $(".acidjs-rating-stars form :input").change(function(e){
     console.log("success");
   })
   .fail(function() {
-    console.log("error");
+    alert("Oops! You must be signed in to do that.");
   })
 
 })
