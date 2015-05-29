@@ -40,16 +40,18 @@ input:focus {
 }
 
 
-.navigation-form-container{
-  background-color: rgba(0,0,0,0.6);
-  height:15%;
-  margin-top: 15em;
+.navigation-form-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  /* height: 15%; */
+  padding: 1em;
+  /* margin-top: 15em; */
   border-radius: 5px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
-.navigation-form-container form{
-  padding: 1%;
 
-}
+
 .navigation-form-container input{
   height:40px;
   width:200px;
@@ -66,14 +68,16 @@ a{
   background-color: #ff6c37;
 
 }
-
 p.notice {
   text-align: center;
-  padding: 1em;
-  width: 14em;
-  border-radius: 4px;
-  color: rgb(90, 200, 90);
-  margin: 1em auto;
+  /* padding: 1em; */
+  width: 21em;
+  /* border-radius: 4px; */
+  color: #5ac85a;
+  margin: 0 auto;
+  /* display: inline-block; */
+  font-size: .8em;
+  /* border: 1px solid red; */
 }
 
 .simplemodal-container{
@@ -141,7 +145,7 @@ button.simplemodal-close {
   text-align: center;
   margin:12% auto;
 }
-.submit{
+.submit {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   background-color: #00cd96;
@@ -149,7 +153,8 @@ button.simplemodal-close {
   color: white;
   font-size: 1em;
   border: none;
-  padding: 10px;
+  width: 13em;
+  padding: .5em;
 }
 
 

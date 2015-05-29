@@ -10,9 +10,11 @@ class MapController < ApplicationController
     @start_coor = [@start_loc['lat'], @start_loc['lng']]
     @nearest_bike_coor = find_nearest_bike(nearest_bikes, [@end_loc["lat"].to_f, @end_loc["lng"].to_f])[0]
 
-
-    @bikedata = BikeRack.where(latitude: @nearest_bike_coor.first, longitude: @nearest_bike_coor.last).first
-
+    if @nearest_bike_coor.nil?
+      render :file => 'public/500.html', :status => :not_found, :layout => false
+    else
+      @bikedata = BikeRack.where(latitude: @nearest_bike_coor.first, longitude: @nearest_bike_coor.last).first
+    end
   end
 
   private
