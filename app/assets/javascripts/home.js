@@ -20,17 +20,11 @@ function initializeHome(){
     $("#signup-modal").removeClass('hidden');
   });
 
-
   var autocomplete2, autocomplete;
-
-
   (function initialize(){
 
-    // Create the autocomplete object, restricting the search
-    // to geographical location types.
     autocomplete = new google.maps.places.Autocomplete((document.getElementById('start')),{types: ['geocode']});
     autocomplete2 = new google.maps.places.Autocomplete(document.getElementById('end'));
-
   })()
 
   function geolocate() {

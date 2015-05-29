@@ -6,16 +6,11 @@ $(".map.index").ready(function(){
 
 function initializeMap(){
 
-
   var directionsDisplay;
   var directionsService = new google.maps.DirectionsService();
   var map;
 
-
-
-
   function initialize() {
-
     directionsDisplay = new google.maps.DirectionsRenderer();
     var mapOptions = {
      scrollwheel: false,
@@ -30,15 +25,10 @@ function initializeMap(){
    calcRoute()
  }
 
-
  function calcRoute() {
-
   var start_point = new google.maps.LatLng(parseFloat(JSON.parse($(".start-loc").text())[0]),parseFloat(JSON.parse($(".start-loc").text())[1]));
   var end_rack = new google.maps.LatLng(parseFloat(JSON.parse($(".nearest-bike").text())[0]),parseFloat(JSON.parse($(".nearest-bike").text())[1]));
-
-
   var request = {
-
     origin: start_point,
     destination: end_rack,
     travelMode: google.maps.TravelMode.BICYCLING
@@ -53,10 +43,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 var avgRating = parseInt($(".rack-rating").text())
 if (avgRating !== 0) $('#group-1-'+ (5 - avgRating)).prop("checked", true);
-// $("#group-1-4").prop( "checked", true );
 
 
-//rating stars
+//Ratings
 $(".acidjs-rating-stars form :input").change(function(e){
   var userRating = $(this).attr("value");
   var currentRackID = $(".ul-container").attr("data-id")
@@ -72,8 +61,8 @@ $(".acidjs-rating-stars form :input").change(function(e){
   .fail(function() {
     alert("Oops! You must be signed in to do that.");
   })
-
 })
+
 //comment form
 $(".comment-form").on("submit", function(event){
   event.preventDefault();
@@ -84,9 +73,8 @@ $(".comment-form").on("submit", function(event){
     data: {comment: {content: $(".comment-form textarea").val(), bike_rack_id: parseInt($(".ul-container").attr("data-id"))}}
   })
   .done(function(e) {
-    //TODO: use handlebars
     $(".comment-container").append('<div>'+e.user.email+':'+e.comment.content+'</div>')
-    //scroll to bottom
+    //Scroll to bottom
     $('html, body').animate({scrollTop: $(document).height()}, 'slow');
   })
   .error(function() {

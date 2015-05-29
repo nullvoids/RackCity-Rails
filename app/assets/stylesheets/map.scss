@@ -12,22 +12,21 @@ span.rating-count {
   color: gray;
   margin-left: 1em;
 }
+
 .header-container {
   background-color: rgba(86, 130, 251, 0.85);
-  /* color: gray; */
   width: 100%;
   top: 0;
   z-index: 100;
   position: fixed;
-  /* display: block; */
 }
+
 .sign-out-div {
-  /* border: 1px solid red; */
   display: inline-block;
   float: right;
-  /* height: 3em; */
   margin: 1em 1em;
 }
+
 a.sign-out-btn {
   border: 1px solid white;
   color: white;
@@ -40,24 +39,19 @@ a.sign-out-btn:hover {
   color: rgb(111, 148, 251);
   background-color: white;
 }
+
 .logo-div {
-  /* border: 1px solid; */
   display: inline-block;
-  /* width: 29em; */
 }
+
 .map-page{
-
   font-weight: 100;
-
-  background: -webkit-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* FF3.6+ */
+  background: -webkit-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); Chrome 10+,
   background:     -ms-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* IE10 */
   background:      -o-linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* Opera 11.10+ */
   background:         linear-gradient(90deg, #ECE9E6 10%, #FFFFFF 90%); /* W3C */
-
-  /* W3C */
-
 }
+
 #panel {
   position: absolute;
   top: 5px;
@@ -74,17 +68,18 @@ a.sign-out-btn:hover {
   color: $grayfont;
   font-weight: 100;
 }
+
 .greeting-container{
   margin-top: 6em;
 }
+
 img.bike-logo {
   margin-top: 1%;
   width: 3em;
   display: inline-block;
-  /* max-width: 5%; */
-  /* border: 1px solid red; */
   padding-right: .4em;
 }
+
 h3.rack-header {
   display: inline-block;
   color: white;
@@ -112,29 +107,17 @@ input.comment-submit-btn:hover {
   background-color: lightgray;
   color: white;
 }
-// html{
-//   height:100%;
-//   width:100%;
-//   background-image: url(../sativa.png);
-// }
-// .comment{
-//   margin-top: 3%;
-//   margin-left: 3%;
-//   border: 1px solid rgb(224, 224, 224);
-//   border-radius: 4px;
-//   width: 30%;
-//   color:gray;
-//   font-size:1em;
-// }
+
 .comment-form-container {
-  /* border: 1px solid red; */
   width: 27em;
   margin: 3em auto;
 }
+
 .comment-form-container h3 {
   color: $grayfont;
   font-weight: 100;
 }
+
 .comment-form{
   height: 11em;
   width: 422px;
@@ -145,68 +128,9 @@ input.comment-submit-btn:hover {
   background-color: white;
   width: 40em;
   padding: 1em;
-  /* height: 4em; */
   border-radius: 3px;
   margin: 0 auto .3em auto;
 }
-// .comments{
-//   padding-left: 3%;
-// }
-// .header-div {
-//   position: absolute;
-//   bottom: 91%;
-//   width: 100%;
-//   right: 0%;
-// }
-
-// .rack-header{
-
-//   font-family: helvetica;
-
-//   font-size: 1.5em;
-//   color: rgb(100, 96, 185);
-//   display: inline-block;
-//   margin-left:1%;
-//   padding-top: 4px;
-// }
-// .header-div img{
-//   margin-top: 1%;
-//   max-height:4%;
-//   max-width:4%;
-// }
-
-
-// h1{
-//  padding-top: 3%;
-//  margin-top: -3%;
-//  text-align: center;
-// }
-// ul{
-//   list-style-type: none;
-//   padding:0;
-//   margin:0;
-//   text-align: center;
-// }
-
-// .ul{
-//   width: 27%;
-//   margin: 2% auto;
-// }
-
-// .logout{
-//   border-radius: 4px;
-//   background: transparent;
-//   border: 1px solid rgb(100, 96, 185);
-//   color: rgb(100, 96, 185);
-//   margin-left: 88%;
-//   margin-bottom: 3%;
-// }
-
-// .logout:hover{
-//   background-color: rgb(100, 96, 185);
-//   color:white;
-// }
-
 
 .acidjs-rating-stars,
 .acidjs-rating-stars label::before
@@ -261,7 +185,6 @@ input.comment-submit-btn:hover {
 .acidjs-rating-disabled
 {
   opacity: .50;
-
   -webkit-pointer-events: none;
   -moz-pointer-events: none;
   pointer-events: none;
