@@ -21,11 +21,11 @@
         <% if @validatable %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
-        <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+        <%= f.password_field :password, pattern:".{8,}", required: "required", title: "Must be at least 8 characters", autocomplete: "off", placeholder: "Password" %>
       </div>
 
       <div class="field">
-        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password confirmation" %>
+        <%= f.password_field :password_confirmation, pattern:".{8,}", required: "required", title: "Must be at least 8 characters", autocomplete: "off", placeholder: "Password confirmation" %>
       </div>
 
       <div class="submit-container">

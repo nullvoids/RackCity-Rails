@@ -86,6 +86,8 @@ $(".comment-form").on("submit", function(event){
   .done(function(e) {
     //TODO: use handlebars
     $(".comment-container").append('<div>'+e.user.email+':'+e.comment.content+'</div>')
+    //scroll to bottom
+    $('html, body').animate({scrollTop: $(document).height()}, 'slow');
   })
   .error(function() {
     alert("You must be signed in to do that!")
