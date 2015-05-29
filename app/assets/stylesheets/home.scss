@@ -244,7 +244,7 @@ and (max-device-width : 667px) {
     display: block;
     margin: auto;
     border-radius: 2px;
-    width: 10em;
+    width: 40em;
     border: none;
     margin-top: 4%;
     font-size: 1em;
@@ -259,7 +259,7 @@ and (max-device-width : 667px) {
     margin:12% auto;
   }
 
-  .submit {
+  .submit{
     border-radius: 2px;
     display: block;
     margin: auto;
@@ -269,6 +269,7 @@ and (max-device-width : 667px) {
     border: none;
     padding: 10px;
     height: 43px;
+    width: 17em;
     margin-top: 4%;
   }
 
@@ -323,6 +324,7 @@ and (max-device-width : 667px) {
     flex-wrap: nowrap;
     justify-content: center;
     margin: auto;
+    width: 50em;
   }
 }
 
