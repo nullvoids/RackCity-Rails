@@ -1,9 +1,11 @@
 class RatingController < ApplicationController
   def create
     this_rating = Rating.find_or_create_by(bike_rack_id: params[:ratingData][:rackID].to_i, user_id: current_user.id)
-    this_rating.rating = params[:ratingData][:newRating].to_i
+    this_rating.update_attributes(rating: params[:ratingData][:newRating].to_i)
+
     render json: update_average
   end
+
   private
   def update_average
     sum = 0
