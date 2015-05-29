@@ -66,8 +66,8 @@ $(".acidjs-rating-stars form :input").change(function(e){
     dataType: 'JSON',
     data: {ratingData: {newRating: userRating, rackID: currentRackID}},
   })
-  .done(function() {
-    console.log("success");
+  .done(function(e) {
+    e === 1 ? $(".rating-count").text("1 Rating") : $(".rating-count").text(e + " Ratings")
   })
   .fail(function() {
     alert("Oops! You must be signed in to do that.");
