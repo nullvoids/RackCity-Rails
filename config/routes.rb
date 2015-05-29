@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
   resources :comment
+  resources :rating
 
   get '/map' => 'map#index'
   # Example of regular route:
