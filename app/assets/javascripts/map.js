@@ -15,6 +15,8 @@ function initializeMap(){
     var mapOptions = {
      scrollwheel: false,
      navigationControl: false,
+     draggable: false,
+     panControl: false,
      mapTypeControl: false,
      scaleControl: false,
      zoom: 12,

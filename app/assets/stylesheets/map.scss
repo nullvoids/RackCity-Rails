@@ -120,7 +120,7 @@ input.comment-submit-btn:hover {
 
 .comment-form{
   height: 11em;
-  width: 422px;
+  width: auto;
 }
 
 .comment-container div {
@@ -188,4 +188,20 @@ input.comment-submit-btn:hover {
   -webkit-pointer-events: none;
   -moz-pointer-events: none;
   pointer-events: none;
+}
+
+/*Media Queries*/
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+
+  #map-canvas{
+    width:100% !important;
+  }
+
+  .comment-form-container{
+    width: 100%;
+  }
+
 }

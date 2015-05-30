@@ -41,9 +41,9 @@ input:focus {
   bottom: 0;
 }
 
-.navigation-form-container input{
-  height:40px;
-  width:200px;
+.navigation-form-container input {
+  height: 40px;
+  width: 240px;
   display: inline-block;
   font-size: .8em;
 }
@@ -193,7 +193,7 @@ button.simplemodal-close {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  width:40%;
+  width:60%;
   margin:auto;
 }
 
@@ -299,6 +299,7 @@ and (max-device-width : 667px) {
     color:white;
     margin-left: 70%;
   }
+
 
   .login{
     padding: 5px;
