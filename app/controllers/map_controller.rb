@@ -1,6 +1,6 @@
 class MapController < ApplicationController
   def index
-    @start_loc = get_coordinates(HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{map_params["start"].gsub(/[,]/,'').gsub(/[\s]/, "+")}&key=AIzaSyDdG_VU83NMjKiN5k5HExLIhH3K2XN5wkA"))
+    @start_loc = get_coordinates(HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{map_params["start"].gsub(/[,]/,'').gsub(/[\s]/, "+")}&key=#{ENV['GOOGLE_GEOCODER_KEY']}"))
     @end_loc = get_coordinates(HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{map_params["end"].gsub(/[,]/,'').gsub(/[\s]/, "+")}&key=#{ENV['GOOGLE_GEOCODER_KEY']}"))
     nearest_bikes = HTTParty.get("https://data.sfgov.org/resource/w969-5mn4.json?$where=within_circle(latitude,#{@end_loc['lat']},#{@end_loc['lng']},300)")
     @start_coor = [@start_loc['lat'], @start_loc['lng']]
