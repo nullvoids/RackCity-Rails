@@ -2,7 +2,7 @@ $grayfont: rgb(116, 116, 116);
 
 #map-canvas {
   height: 35em;
-  width: 50em;
+  width: 100%;
   margin: 0 auto;
   padding: 0px;
 }
@@ -126,7 +126,7 @@ input.comment-submit-btn:hover {
 .comment-container div {
   border: 1px solid lightgray;
   background-color: white;
-  width: 40em;
+  width: 90%;
   padding: 1em;
   border-radius: 3px;
   margin: 0 auto .3em auto;
@@ -192,9 +192,8 @@ input.comment-submit-btn:hover {
 
 /*Media Queries*/
 
-@media only screen
-and (min-device-width : 375px)
-and (max-device-width : 667px) {
+@media (min-width : 375px)
+and (max-width : 667px) {
 
   #map-canvas{
     width:100% !important;
